@@ -1,0 +1,64 @@
+
+
+#habitLogDate {
+    font-weight: bold;
+    color: red; /* Change this color to your desired color */
+  }
+
+  #habitlogmaintext {
+    font-family: 'Eczar', serif;
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.92);
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+/* Style the container for the text at the top right */
+.top-right-container {
+    position: absolute;
+    top: 60px; /* Adjust the top distance as needed */
+    right: 30px; /* Adjust the right distance as needed */
+    background-color: purple; /* Background color for the container */
+    padding: 10px; /* Padding around the container */
+    border: 1px solid yellow; /* Border for the container */
+    border-radius: 5px; /* Rounded corners for the container */
+    text-size
+}
+
+/* Style the text within the container */
+#top-right-text {
+    color: #fff; /* Text color */
+    font-size: 16px; /* Adjust the text size as needed */
+}
+
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
