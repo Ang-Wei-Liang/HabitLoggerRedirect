@@ -406,6 +406,21 @@ app.post('/updateTable', async (req, res) => {
                 await userDocRef.update({ totalPoints: pointsTotalUpdated });
             }
 
+            function addOneDay(dateString) {
+                // Parse the date string into a Date object
+                let date = new Date(dateString);
+            
+                // Add one day to the date
+                date.setDate(date.getDate() + 1);
+            
+                // Format the date back into a string in the format YYYY-MM-DD
+                let newDateString = date.toISOString().split('T')[0];
+            
+                return newDateString;
+            }
+
+            dateInsert = addOneDay(dateInsert)
+
             const subCollectionRef = userDocRef.collection('dailyRoutePoints').doc(dateInsert);
 
             const subCollectionDoc = await subCollectionRef.get();
