@@ -121,7 +121,7 @@ function getTodayDate() {
     const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth() + 1; // Months are 0-indexed, so add 1
-    const day = today.getDate();
+    const day = today.getDate() + 1;
 
     // Create a string in the format "YYYY-MM-DD"
     const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
