@@ -406,22 +406,24 @@ app.post('/updateTable', async (req, res) => {
                 await userDocRef.update({ totalPoints: pointsTotalUpdated });
             }
 
-            function addOneDay(dateString) {
-                // Parse the date string into a Date object
-                let date = new Date(dateString);
+            function addOneDayToTimestamp(timestamp) {
+                // Convert Firestore Timestamp to JavaScript Date object
+                let date = timestamp.toDate();
             
                 // Add one day to the date
                 date.setDate(date.getDate() + 1);
             
-                // Format the date back into a string in the format YYYY-MM-DD
-                let newDateString = date.toISOString().split('T')[0];
-            
-                return newDateString;
+                // Convert back to Firestore Timestamp
+                return firebase.firestore.Timestamp.fromDate(date);
             }
 
-            dateInsert = addOneDay(dateInsert)
+            dateInsert = addOneDayToTimestamp(dateInsert);
 
-            const subCollectionRef = userDocRef.collection('dailyRoutePoints').doc(dateInsert);
+            // Format the new date for the document ID if necessary
+            const formattedDateID = dateInsert.toDate().toISOString().split('T')[0];
+
+
+            const subCollectionRef = userDocRef.collection('dailyRoutePoints').doc(formattedDateID);
 
             const subCollectionDoc = await subCollectionRef.get();
             let tableData = [];
