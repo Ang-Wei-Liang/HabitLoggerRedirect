@@ -6,3 +6,5 @@ Hosting express node project on vercel
 
 ### Deployed on
 > https://node-express-vercel-rose.vercel.app/home
+
+Just realised there are bugs, but the firebase auth seems ok so thats the main learning point :/
